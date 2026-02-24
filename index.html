@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Bottle Shoot Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="overlay-welcome" class="overlay">
+    <h1>Welcome to the 3D Shoot Game</h1>
+    <p>Shoot bottles one by one. Each hit = +1 point. Miss once and you lose.</p>
+    <button id="startBtn">Start Game</button>
+  </div>
+
+  <div id="hud">
+    <div id="score">Score: 0</div>
+    <div id="target">Target: 1000</div>
+    <button id="aimBtn">Aim</button>
+  </div>
+
+  <div id="overlay-end" class="overlay hidden">
+    <h1 id="end-title"></h1>
+    <p id="end-score"></p>
+    <button id="restartBtn">Restart</button>
+  </div>
+
+  <div id="container"></div>
+
+  <script src="https://unpkg.com/three@0.154.0/build/three.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

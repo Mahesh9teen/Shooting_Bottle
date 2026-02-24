@@ -1,0 +1,33 @@
+html,body { height:100%; margin:0; font-family: Arial, Helvetica, sans-serif; background:#111; color:#eee }
+#container { width:100%; height:100vh; display:block }
+.overlay { position:fixed; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; background:rgba(0,0,0,0.7); z-index:10 }
+.hidden { display:none }
+#hud { position:fixed; left:12px; top:12px; z-index:11; color:#fff; display:flex; gap:12px; font-weight:600 }
+#hud > div { background:rgba(0,0,0,0.5); padding:8px 12px; border-radius:6px }
+button { padding:10px 18px; border-radius:8px; border:none; background:#28a; color:white; cursor:pointer; font-size:16px }
+button:hover { filter:brightness(1.05) }
+
+/* aim button smaller in HUD */
+#hud { align-items:center }
+#aimBtn { padding:6px 12px; font-size:14px; background:#2a8; margin-left:8px }
+#aimBtn.aiming { background:#e55 }
+
+/* single-point crosshair */
+#container::after { content:''; position:fixed; left:50%; top:50%; width:8px; height:8px; transform:translate(-50%,-50%); pointer-events:none; z-index:5; border-radius:50% }
+#container::after { background: radial-gradient(circle at center, rgba(255,255,255,0.95) 2px, transparent 3px); background-repeat:no-repeat }
+
+/* aiming shows a small red point */
+#container.aiming::after { background: radial-gradient(circle at center, rgba(255,80,80,0.95) 2px, transparent 3px) }
+
+@media (max-width:600px){ h1{font-size:20px} button{font-size:14px} }
+
+/* playing state uses default cursor */
+#container.playing { cursor: default }
+
+/* Aim button styled as a bullseye */
+#aimBtn { width:40px; height:40px; padding:0; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#222; border:2px solid rgba(255,255,255,0.08); }
+#aimBtn::before { content:''; width:22px; height:22px; border-radius:50%; border:2px solid #fff; box-shadow: inset 0 0 0 6px rgba(0,0,0,0.2); }
+#aimBtn.aiming::before { border-color:#f55; box-shadow: 0 0 8px rgba(255,85,85,0.6); }
+
+/* aim red crosshair when aiming */
+#container.aiming::after { width:12px; height:12px; background: radial-gradient(circle at center, rgba(255,80,80,0.95) 2px, transparent 3px) }
